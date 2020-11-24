@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Instagram clone</string>
+    <string name="app_logo_text_description">Instagram app logo text</string>
 </resources>
