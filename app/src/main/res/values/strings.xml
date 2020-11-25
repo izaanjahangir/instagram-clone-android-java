@@ -3,4 +3,6 @@
     <string name="app_logo_text_description">Instagram app logo text</string>
     <string name="create_new_account">Create new account</string>
     <string name="log_in">Log in</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="password">Password</string>
 </resources>
