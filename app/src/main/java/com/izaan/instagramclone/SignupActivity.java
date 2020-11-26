@@ -56,7 +56,7 @@ public class SignupActivity extends AppCompatActivity {
 
         user.put("firstName", firstName);
         user.put("lastName", lastName);
-        
+
         final View focusedView = this.getCurrentFocus();
         if (focusedView != null) {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
