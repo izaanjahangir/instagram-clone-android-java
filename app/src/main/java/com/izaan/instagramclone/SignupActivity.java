@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+//import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -63,8 +64,12 @@ public class SignupActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
         }
 
+        final LoadingIndicator loading = new LoadingIndicator(this);
+        loading.show();
+
         user.signUpInBackground(new SignUpCallback() {
             public void done(ParseException e) {
+                loading.hide();
                 if (e == null) {
                     Toast.makeText(getApplicationContext(),"Registration successfull",Toast.LENGTH_LONG).show();
                     clearFields();
