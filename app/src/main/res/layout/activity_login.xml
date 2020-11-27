@@ -60,16 +60,17 @@
         android:layout_marginTop="20dp"
         android:background="@color/lightBlue"
         android:clickable="true"
+        android:focusable="true"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
+        android:onClick="handleLogin"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:text="@string/log_in"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInputLogin"
-        android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputLogin" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -93,14 +94,15 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="0"
             android:clickable="true"
             android:fontFamily="sans-serif-black"
             android:onClick="handleSignupPress"
             android:text="@string/sign_up"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:focusable="true" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,11 +58,7 @@ public class SignupActivity extends AppCompatActivity {
         user.put("firstName", firstName);
         user.put("lastName", lastName);
 
-        final View focusedView = this.getCurrentFocus();
-        if (focusedView != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-        }
+        closeKeyboard();
 
         final LoadingIndicator loading = new LoadingIndicator(this);
         loading.show();
@@ -99,5 +95,13 @@ public class SignupActivity extends AppCompatActivity {
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
         java.util.regex.Matcher m = p.matcher(email);
         return m.matches();
+    }
+
+    private void closeKeyboard(){
+        final View focusedView = this.getCurrentFocus();
+        if (focusedView != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
+        }
     }
 }
