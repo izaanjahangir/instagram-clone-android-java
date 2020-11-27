@@ -9,16 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-<!--        <service-->
-<!--            android:name=".NotificationListener"-->
-<!--            android:label="@string/notification_listener_service"-->
-<!--            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.service.notification.NotificationListenerService" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
-
+        <activity android:name=".HomeActivity"></activity>
+        <!-- <service -->
+        <!-- android:name=".NotificationListener" -->
+        <!-- android:label="@string/notification_listener_service" -->
+        <!-- android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.service.notification.NotificationListenerService" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

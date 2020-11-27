@@ -2,6 +2,7 @@ package com.izaan.instagramclone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,11 +45,15 @@ public class LoginActivity extends AppCompatActivity {
         final LoadingIndicator loading = new LoadingIndicator(this);
         loading.show();
 
+        final Activity thisActivity = this;
         ParseUser.logInInBackground(email, password, new LogInCallback() {
             public void done(ParseUser user, ParseException e) {
                 loading.hide();
                 if (user != null) {
                     Toast.makeText(getApplicationContext(),"Successfull",Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(thisActivity, HomeActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
                 }
