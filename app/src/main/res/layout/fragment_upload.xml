@@ -4,23 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".UploadFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/innerConstraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/homeBottomNav"
-        android:layout_width="0dp"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:text="@string/upload_fragment"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
