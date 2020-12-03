@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/exploreNavItem"
+        android:id="@+id/exploreFragment"
         android:icon="@drawable/explore_icon"
         android:title="@string/Explore"
          />
     <item
-        android:id="@+id/uploadNavItem"
+        android:id="@+id/uploadFragment"
         android:icon="@drawable/upload_icon"
         android:title="@string/upload" />
     <item
-        android:id="@+id/profileNavItem"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/profile_icon"
         android:title="@string/profile"
          />
