@@ -60,7 +60,7 @@ public class SignupActivity extends AppCompatActivity {
 
         closeKeyboard();
 
-        final LoadingIndicator loading = new LoadingIndicator(this);
+        final LoadingIndicator loading = new LoadingIndicator(this, "Registering");
         loading.show();
 
         user.signUpInBackground(new SignUpCallback() {

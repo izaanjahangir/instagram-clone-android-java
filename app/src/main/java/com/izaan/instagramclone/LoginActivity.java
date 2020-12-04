@@ -23,26 +23,27 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-    public void handleSignupPress(View view){
+    public void handleSignupPress(View view) {
         Intent intent = new Intent(this, SignupActivity.class);
         startActivity(intent);
     }
 
-    public void handleLogin(View view){
+    public void handleLogin(View view) {
         EditText emailEl = findViewById(R.id.emailInputLogin);
         EditText passwordEl = findViewById(R.id.passwordInputLogin);
 
         String email = emailEl.getText().toString();
         String password = passwordEl.getText().toString();
 
-        if(email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(getApplicationContext(),"All fields are required",Toast.LENGTH_LONG).show();
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_LONG).show();
             return;
         }
 
         closeKeyboard();
-        
-        final LoadingIndicator loading = new LoadingIndicator(this);
+
+        final LoadingIndicator loading = new LoadingIndicator(this, "Logging in");
+
         loading.show();
 
         final Activity thisActivity = this;
@@ -50,21 +51,21 @@ public class LoginActivity extends AppCompatActivity {
             public void done(ParseUser user, ParseException e) {
                 loading.hide();
                 if (user != null) {
-                    Toast.makeText(getApplicationContext(),"Successfull",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(thisActivity, HomeActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
-    private void closeKeyboard(){
+    private void closeKeyboard() {
         final View focusedView = this.getCurrentFocus();
         if (focusedView != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
         }
     }
