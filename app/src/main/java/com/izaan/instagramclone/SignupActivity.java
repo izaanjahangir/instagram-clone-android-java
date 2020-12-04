@@ -2,14 +2,12 @@ package com.izaan.instagramclone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-//import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.izaan.instagramclone.services.KeyboardService;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -58,7 +56,7 @@ public class SignupActivity extends AppCompatActivity {
         user.put("firstName", firstName);
         user.put("lastName", lastName);
 
-        closeKeyboard();
+        KeyboardService.close(this);
 
         final LoadingIndicator loading = new LoadingIndicator(this, "Registering");
         loading.show();
@@ -95,13 +93,5 @@ public class SignupActivity extends AppCompatActivity {
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
         java.util.regex.Matcher m = p.matcher(email);
         return m.matches();
-    }
-
-    private void closeKeyboard(){
-        final View focusedView = this.getCurrentFocus();
-        if (focusedView != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-        }
     }
 }
