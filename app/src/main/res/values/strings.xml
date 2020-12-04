@@ -21,4 +21,7 @@
     <string name="explore_fragment">Explore Fragment</string>
     <string name="profile_fragment">Profile Fragment</string>
     <string name="upload_fragment">Upload Fragment</string>
+    <string name="user_avatar">user avatar</string>
+    <string name="username">username</string>
+    <string name="user_post">user post</string>
 </resources>
