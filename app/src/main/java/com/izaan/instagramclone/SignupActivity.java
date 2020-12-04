@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.izaan.instagramclone.services.KeyboardService;
+import com.izaan.instagramclone.services.ValidatorService;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -20,7 +21,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
     }
 
-    public void handleSignup(View view){
+    public void handleSignup(View view) {
         EditText firstNameEl = findViewById(R.id.firstNameSignup);
         EditText lastNameEl = findViewById(R.id.lastNameSignup);
         EditText emailEl = findViewById(R.id.emailInputSignup);
@@ -33,18 +34,18 @@ public class SignupActivity extends AppCompatActivity {
         String password = passwordEl.getText().toString();
         String confirmPassword = confirmPasswordEl.getText().toString();
 
-        if(firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            Toast.makeText(getApplicationContext(),"All fields are required",Toast.LENGTH_LONG).show();
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(!isValidEmailAddress(email)) {
-            Toast.makeText(getApplicationContext(),"Email is not valid",Toast.LENGTH_LONG).show();
+        if (!ValidatorService.isValidEmailAddress(email)) {
+            Toast.makeText(getApplicationContext(), "Email is not valid", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(!password.equals(confirmPassword)) {
-            Toast.makeText(getApplicationContext(),"Password and confirm password should match",Toast.LENGTH_LONG).show();
+        if (!password.equals(confirmPassword)) {
+            Toast.makeText(getApplicationContext(), "Password and confirm password should match", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -65,16 +66,16 @@ public class SignupActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 loading.hide();
                 if (e == null) {
-                    Toast.makeText(getApplicationContext(),"Registration successfull",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Registration successfull", Toast.LENGTH_LONG).show();
                     clearFields();
                 } else {
-                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
-    private void clearFields(){
+    private void clearFields() {
         EditText firstNameEl = findViewById(R.id.firstNameSignup);
         EditText lastNameEl = findViewById(R.id.lastNameSignup);
         EditText emailEl = findViewById(R.id.emailInputSignup);
@@ -86,12 +87,5 @@ public class SignupActivity extends AppCompatActivity {
         emailEl.setText("");
         passwordEl.setText("");
         confirmPasswordEl.setText("");
-    }
-
-    private boolean isValidEmailAddress(String email) {
-        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
-        java.util.regex.Matcher m = p.matcher(email);
-        return m.matches();
     }
 }
