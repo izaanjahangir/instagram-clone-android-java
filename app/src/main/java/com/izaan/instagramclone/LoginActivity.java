@@ -34,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
         String email = emailEl.getText().toString();
         String password = passwordEl.getText().toString();
 
+//        String email = "izaanjahangir2@gmail.com";
+//        String password = "12345678";
+
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_LONG).show();
             return;
